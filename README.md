@@ -1,75 +1,45 @@
-# React + TypeScript + Vite
+# Planifica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Planifica** es una aplicación web interactiva para explorar planes de estudio universitarios, visualizar materias y analizar sus correlatividades (prerrequisitos) de forma clara e intuitiva.
 
-Currently, two official plugins are available:
+## Propósito
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Facilitar a estudiantes la comprensión visual de su carrera universitaria:
+- Explorar el grafo de materias y sus dependencias (correlatividades).
+- Consultar información detallada de cada asignatura.
+- Llevar un registro personal del progreso académico guardado localmente en el navegador.
 
-## React Compiler
+## Tecnologías principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** — Biblioteca de interfaz de usuario basada en componentes funcionales y hooks.
+- **TypeScript** — Tipado estático estricto para mayor seguridad y mantenibilidad.
+- **Vite** — Herramienta de desarrollo rápida y empaquetador moderno.
+- **React Flow (`@xyflow/react`)** — Visualización interactiva de grafos y mapas de correlatividades *(por instalar en la etapa correspondiente)*.
+- **CSS** — Hojas de estilo nativas y mantenibles, sin dependencias innecesarias.
+- **JSON** — Archivos locales estructurados para los datos académicos.
+- **LocalStorage** — Persistencia local del progreso del usuario en el navegador (sin backend ni base de datos).
 
-## Expanding the ESLint configuration
+## Comandos de desarrollo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> **Nota en Windows PowerShell:** Si la ejecución de scripts `.ps1` está restringida en tu sistema, utiliza `npm.cmd` en lugar de `npm`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+- **Instalar dependencias:**
+  ```bash
+  npm install
+  ```
+- **Iniciar servidor de desarrollo (con recarga en caliente / HMR):**
+  ```bash
+  npm run dev
+  ```
+- **Verificar tipos y compilar para producción:**
+  ```bash
+  npm run build
+  ```
+- **Ejecutar el linter (ESLint):**
+  ```bash
+  npm run lint
+  ```
+- **Previsualizar la compilación de producción:**
+  ```bash
+  npm run preview
+  ```
